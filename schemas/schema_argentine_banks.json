@@ -1,0 +1,28 @@
+
+{
+   "title": "ArgentineBanks",
+   "type": "object",
+   "required": ["bank_name", "time", "buy", "sale", "purchase_with_taxes"],
+   "properties":{
+     "bank_name":{
+         "type":"string",
+         "description":"Nombre del Banco."
+      },
+      "time":{
+         "type":"string",
+         "description":"Momento de extraccion del scraping."
+      },
+      "buy":{
+         "type":"number",
+         "description":"Valor de compra."
+      },
+      "sale":{
+         "type":"number",
+         "description":"Valor de venta."
+      },
+      "purchase_with_taxes":{
+         "type":"number",
+         "description":"Valor de compra final con impuestos."
+      }
+   }
+}
