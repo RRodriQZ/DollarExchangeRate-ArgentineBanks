@@ -1,16 +1,14 @@
 from abc import ABCMeta, abstractmethod
 from configparser import ConfigParser
-from log.logger import Log
 
 
 class Banks(object):
+
     __metaclass__ = ABCMeta
 
-    def __init__(self, log=Log()) -> None:
+    def __init__(self) -> None:
         config = ConfigParser()
         config.read('config.ini')
-
-        self.logger = log.get_logger(__name__)
 
         self.argentine_banks_pages = {
             'Banco Nacion': config['ArgentineBanks']['banco_nacion'],
@@ -27,4 +25,5 @@ class Banks(object):
         }
 
     @abstractmethod
-    def get_dollar_values_of_banks(self) -> list: pass
+    def get_dollar_values_of_banks(self) -> list:
+        pass

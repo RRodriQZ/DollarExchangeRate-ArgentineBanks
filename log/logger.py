@@ -3,7 +3,8 @@ import logging
 
 
 @singleton
-class Log:
+class Log(object):
+
     def __init__(self) -> None:
         self.LOG_FILENAME = 'log/LOG.log'
         logging.basicConfig(filename=self.LOG_FILENAME, level=logging.INFO,

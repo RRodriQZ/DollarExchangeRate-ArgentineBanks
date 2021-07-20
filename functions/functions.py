@@ -6,6 +6,7 @@ from log.logger import Log
 
 # GLOBAL VALUES #
 logger = Log().get_logger(__name__)
+time_out = 10
 
 
 def get_str_time_now() -> str:
@@ -24,7 +25,7 @@ def get_response_by_url(url: str) -> BeautifulSoup:
     """
     try:
         request = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        webpage = urlopen(request).read()
+        webpage = urlopen(request, timeout=time_out).read()
         response = BeautifulSoup(webpage, 'html.parser')
         return response
 

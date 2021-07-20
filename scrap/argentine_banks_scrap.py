@@ -6,13 +6,15 @@ from log.logger import Log
 
 
 class ArgentineBanksScrap(Banks):
+
     def __init__(self) -> None:
-        super().__init__(Log())
+        super().__init__()
         self.logger = Log().get_logger(__name__)
 
     def get_dollar_values_of_banks(self) -> list[ArgentineBank]:
         try:
             self.logger.info(f'**********[ INICIADO EL SCRAPING DE BANCOS ARGENTINOS ]**********')
+
             argentine_banks_list = []
 
             for name_page, url in self.argentine_banks_pages.items():

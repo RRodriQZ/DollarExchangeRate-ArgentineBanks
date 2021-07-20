@@ -1,4 +1,5 @@
 class ArgentineBank(object):
+
     def __init__(self, bank_name: str, time: str, compra: float, venta: float, valor_con_impuestos: float) -> None:
         self._bank_name = bank_name
         self._time = time

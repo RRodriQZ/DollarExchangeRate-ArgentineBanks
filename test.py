@@ -12,21 +12,21 @@ class CryptoTest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testArgentineBanksListIsZero(self):
+    def test_argentine_banks_list_is_zero(self):
         length_argentine_banks = len(self.argentine_banks_list)
         self.assertEqual(length_argentine_banks, 0)
 
-    def testBancoNacionValues(self):
+    def test_banco_nacion_values(self):
         bank_found = list(filter(lambda bank: bank.get_bank_name() == 'Banco Nacion', self.argentine_banks_values))
         bank_name = bank_found[0].get_bank_name()
         self.assertEqual(bank_name, 'Banco Nacion')
 
-    def testBancoGaliciaValues(self):
+    def test_banco_galicia_values(self):
         bank_found = list(filter(lambda bank: bank.get_bank_name() == 'Banco Galicia', self.argentine_banks_values))
         bank_name = bank_found[0].get_bank_name()
         self.assertEqual(bank_name, 'Banco Galicia')
 
-    def testBancoICBCSValuesTypes(self):
+    def test_banco_ICBC_values_types(self):
         partial_values = get_partial_values_from_banks(self.icbc_url)
         value_type_1 = type(partial_values[0])
         value_type_2 = type(partial_values[1])
@@ -38,7 +38,7 @@ class CryptoTest(unittest.TestCase):
         self.assertEqual(value_type_3, float)
         self.assertEqual(value_type_4, float)
 
-    def testArgentineBanksListIsEleven(self):
+    def test_argentine_banks_list_is_eleven(self):
         self.argentine_banks_list.extend(self.argentine_banks_values)
         length_argentine_banks = len(self.argentine_banks_list)
         self.assertEqual(length_argentine_banks, 11)
