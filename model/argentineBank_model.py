@@ -22,5 +22,7 @@ class ArgentineBank(object):
         return self._valor_con_impuestos
 
     def __str__(self) -> str:
-        return f'[Bank]: "{self.get_bank_name()}" [Time]: "{self.get_time()}" [Compra]: ${self.get_compra()} ' \
-               f'[Venta]: ${self.get_venta()} [Compra C/Impuestos]: ${self.get_valor_con_impuesto()}'
+        return (
+            f'[Bank]: "{self.get_bank_name()}" [Time]: "{self.get_time()}" [Compra]: ${self.get_compra()} '
+            f'[Venta]: ${self.get_venta()} [Compra C/Impuestos]: ${self.get_valor_con_impuesto()}'
+        )
