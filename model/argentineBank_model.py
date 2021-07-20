@@ -1,5 +1,4 @@
 class ArgentineBank(object):
-
     def __init__(self, bank_name: str, time: str, compra: float, venta: float, valor_con_impuestos: float) -> None:
         self._bank_name = bank_name
         self._time = time
@@ -23,5 +22,7 @@ class ArgentineBank(object):
         return self._valor_con_impuestos
 
     def __str__(self) -> str:
-        return f'[Bank]: "{self.get_bank_name()}" [Time]: "{self.get_time()}" [Compra]: ${self.get_compra()} ' \
-               f'[Venta]: ${self.get_venta()} [Compra C/Impuestos]: ${self.get_valor_con_impuesto()}'
+        return (
+            f'[Bank]: "{self.get_bank_name()}" [Time]: "{self.get_time()}" [Compra]: ${self.get_compra()} '
+            f'[Venta]: ${self.get_venta()} [Compra C/Impuestos]: ${self.get_valor_con_impuesto()}'
+        )
