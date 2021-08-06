@@ -8,7 +8,7 @@ class Banks(object):
 
     def __init__(self) -> None:
         config = ConfigParser()
-        config.read("config.ini")
+        config.read("scrap/resources/config.ini")
 
         self.argentine_banks_pages = {
             "Banco Nacion": config["ArgentineBanks"]["banco_nacion"],

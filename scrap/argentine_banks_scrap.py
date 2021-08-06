@@ -1,6 +1,5 @@
 from functions.functions import get_partial_values_from_banks, get_str_time_now
-from schemas.validate import validate_argentine_banks_for_schema
-from model.argentineBank_model import ArgentineBank
+from schemas.validator import ArgentineBankSchema
 from scrap.inteface_bank_scrap import Banks
 from log.logger import Log
 
@@ -10,10 +9,10 @@ class ArgentineBanksScrap(Banks):
         super().__init__()
         self.logger = Log().get_logger(__name__)
 
-    def get_dollar_values_of_banks(self) -> list[ArgentineBank]:
+    def get_dollar_values_of_banks(self) -> list:
         try:
             self.logger.info(
-                f"**********[ INICIADO EL SCRAPING DE BANCOS ARGENTINOS ]**********"
+                f"**********[ ARGENTINE BANKS SCRAPING STARTED ]**********"
             )
 
             argentine_banks_list = []
@@ -22,37 +21,27 @@ class ArgentineBanksScrap(Banks):
                 try:
                     time_now = get_str_time_now()
 
-                    partial_values = get_partial_values_from_banks(url)
+                    partial_values = get_partial_values_from_banks(url=url)
 
-                    buy, sale, purchase_with_taxes = (
-                        partial_values[0],
-                        partial_values[1],
-                        partial_values[3],
-                    )
-
-                    evaluate_bank: dict[str, str, float, float, float] = {
-                        "bank_name": name_page,
-                        "time": time_now,
-                        "buy": buy,
-                        "sale": sale,
-                        "purchase_with_taxes": purchase_with_taxes,
-                    }
-
-                    validate_argentine_banks_for_schema(evaluate_bank)
-
-                    new_argentine_bank = ArgentineBank(
-                        name_page, time_now, buy, sale, purchase_with_taxes
+                    new_argentine_bank = ArgentineBankSchema().load(
+                        {
+                            "bank_name": name_page,
+                            "time": time_now,
+                            "buy": partial_values[0],
+                            "sell": partial_values[1],
+                            "purchase_with_taxes": partial_values[3],
+                        }
                     )
 
                     argentine_banks_list.append(new_argentine_bank)
 
                     self.logger.info(
-                        f"* Se extrajeron los valores de compra: {new_argentine_bank.__str__()}"
+                        f"* Purchase values were extracted: {new_argentine_bank.__str__()}"
                     )
 
                 except Exception as e:
                     self.logger.error(
-                        f'Error ocurrio un error en el Scraping url: "{url}", error: "{e}"'
+                        f'Error an error occurred in the Scraping url: "{url}", error: "{e}"'
                     )
 
             self.logger.info(
@@ -62,4 +51,4 @@ class ArgentineBanksScrap(Banks):
             return argentine_banks_list
 
         except Exception as e:
-            self.logger.error(f'Error en el Scraping de datos, error: "{e}"')
+            self.logger.error(f'Data scraping error, error: "{e}"')
