@@ -16,8 +16,7 @@ Web Scraping dollar values of Argentine Banks
 
 # Pre Requirements 📋
 
-* **Python 3**
-* **Pipenv**
+* **Python 3**-**Pipenv** / **Docker**
 
 # Setup Python Virtual Environment 🔧 #
 ```cmd
@@ -42,6 +41,11 @@ python main.py
 **Unittest:**
 ```cmd
 python test.py -v
+```
+# Running Docker 🐳
+```cmd
+docker build -t dollar .
+docker run -it dollar
 ```
 # Author 🖋
 

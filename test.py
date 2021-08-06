@@ -3,7 +3,7 @@ from scrap.argentine_banks_scrap import ArgentineBanksScrap
 import unittest
 
 
-class CryptoTest(unittest.TestCase):
+class Banks_test(unittest.TestCase):
     def setUp(self):
         self.argentine_banks_values = ArgentineBanksScrap().get_dollar_values_of_banks()
         self.icbc_url = "https://www.infodolar.com/cotizacion-dolar-entidad-icbc.aspx"
@@ -27,7 +27,7 @@ class CryptoTest(unittest.TestCase):
         self.assertEqual(bank_name, "Banco Galicia")
 
     def test_banco_ICBC_values_types(self):
-        partial_values = get_partial_values_from_banks(self.icbc_url)
+        partial_values = get_partial_values_from_banks(url=self.icbc_url)
 
         self.assertEqual(type(partial_values[0]), float)
         self.assertEqual(type(partial_values[1]), float)

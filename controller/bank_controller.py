@@ -6,14 +6,14 @@ class Controller(object):
     def show_argentine_banks_values(self):
         argentine_banks_values = self.model.get_dollar_values_of_banks()
 
-        bank_names = [value.get_bank_name() for value in argentine_banks_values]
-        bank_times = [value.get_time() for value in argentine_banks_values]
-        compras = [value.get_compra() for value in argentine_banks_values]
-        ventas = [value.get_venta() for value in argentine_banks_values]
-        compras_con_imp = [
-            value.get_valor_con_impuesto() for value in argentine_banks_values
+        bank_name_list = [value.get_bank_name() for value in argentine_banks_values]
+        time_list = [value.get_time() for value in argentine_banks_values]
+        buy_list = [value.get_buy() for value in argentine_banks_values]
+        sell_list = [value.get_sell() for value in argentine_banks_values]
+        purchase_with_taxes_list = [
+            value.get_purchase_with_taxes() for value in argentine_banks_values
         ]
 
         self.view.show_banks_values(
-            bank_names, bank_times, compras, ventas, compras_con_imp
+            bank_name_list, time_list, buy_list, sell_list, purchase_with_taxes_list
         )
