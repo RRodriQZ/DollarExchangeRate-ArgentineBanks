@@ -1,6 +1,6 @@
 from functions.functions import get_partial_values_from_banks, get_str_time_now
-from schemas.validate import validate_argentine_banks_for_schema
 from model.argentineBank_model import ArgentineBank
+from schemas.validator import ArgentineBankSchema
 from scrap.inteface_bank_scrap import Banks
 from log.logger import Log
 
@@ -22,26 +22,16 @@ class ArgentineBanksScrap(Banks):
                 try:
                     time_now = get_str_time_now()
 
-                    partial_values = get_partial_values_from_banks(url)
+                    partial_values = get_partial_values_from_banks(url=url)
 
-                    buy, sale, purchase_with_taxes = (
-                        partial_values[0],
-                        partial_values[1],
-                        partial_values[3],
-                    )
-
-                    evaluate_bank: dict[str, str, float, float, float] = {
-                        "bank_name": name_page,
-                        "time": time_now,
-                        "buy": buy,
-                        "sale": sale,
-                        "purchase_with_taxes": purchase_with_taxes,
-                    }
-
-                    validate_argentine_banks_for_schema(evaluate_bank)
-
-                    new_argentine_bank = ArgentineBank(
-                        name_page, time_now, buy, sale, purchase_with_taxes
+                    new_argentine_bank = ArgentineBankSchema().load(
+                        {
+                            "bank_name": name_page,
+                            "time": time_now,
+                            "compra": partial_values[0],
+                            "venta": partial_values[1],
+                            "valor_con_impuestos": partial_values[3],
+                        }
                     )
 
                     argentine_banks_list.append(new_argentine_bank)

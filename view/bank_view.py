@@ -4,7 +4,7 @@ class View(object):
         for i in range(len(bank_names)):
             print(f"\n")
             print(f"******************[ {bank_names[i].upper()} ]******************")
-            print(f'* "Crypto":              "{bank_names[i]}"')
+            print(f'* "Banco":               "{bank_names[i]}"')
             print(f'* "Tiempo":              "{bank_times[i]}"')
             print(f'* "Compra":              $ {compras[i]}')
             print(f'* "Ventas":              $ {ventas[i]}')
