@@ -7,9 +7,9 @@ class ArgentineBankSchema(Schema):
 
     bank_name = fields.String(attribute="bank_name")
     time = fields.String(attribute="time")
-    compra = fields.Float(attribute="compra")
-    venta = fields.Float(attribute="venta")
-    valor_con_impuestos = fields.Float(attribute="valor_con_impuestos")
+    buy = fields.Float(attribute="buy")
+    sell = fields.Float(attribute="sell")
+    purchase_with_taxes = fields.Float(attribute="purchase_with_taxes")
 
 
     @post_load

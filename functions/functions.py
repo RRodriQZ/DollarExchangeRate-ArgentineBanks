@@ -30,7 +30,7 @@ def get_response_by_url(url: str) -> BeautifulSoup:
         return response
 
     except Exception as e:
-        logger.error(f'Error al devolver el Response de url: "{url}", error: "{e}"')
+        logger.error(f'Error returning the Response of url: "{url}", error: "{e}"')
 
 
 def clean_values_scraping_bank(value: str) -> float:
@@ -47,7 +47,7 @@ def clean_values_scraping_bank(value: str) -> float:
 
     except Exception as e:
         logger.error(
-            f'Error en la limpieza de valores de retorno del scraping, error "{e}"'
+            f'Error cleaning return values ​​from scraping, error "{e}"'
         )
 
 
@@ -71,5 +71,5 @@ def get_partial_values_from_banks(url: str) -> list[float]:
 
     except Exception as e:
         logger.error(
-            f'Error en el retorno de valores del scraping: "{url}" ,error: "{e}"'
+            f'Error in the return of scraping values: "{url}" ,error: "{e}"'
         )

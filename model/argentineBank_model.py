@@ -1,10 +1,10 @@
 class ArgentineBank(object):
-    def __init__(self, bank_name: str, time: str, compra: float, venta: float, valor_con_impuestos: float) -> None:
+    def __init__(self, bank_name: str, time: str, buy: float, sell: float, purchase_with_taxes: float) -> None:
         self._bank_name = bank_name
         self._time = time
-        self._compra = compra
-        self._venta = venta
-        self._valor_con_impuestos = valor_con_impuestos
+        self._buy = buy
+        self._sell = sell
+        self._purchase_with_taxes = purchase_with_taxes
 
     def get_bank_name(self) -> str:
         return self._bank_name
@@ -12,17 +12,17 @@ class ArgentineBank(object):
     def get_time(self) -> str:
         return self._time
 
-    def get_compra(self) -> float:
-        return self._compra
+    def get_buy(self) -> float:
+        return self._buy
 
-    def get_venta(self) -> float:
-        return self._venta
+    def get_sell(self) -> float:
+        return self._sell
 
-    def get_valor_con_impuesto(self) -> float:
-        return self._valor_con_impuestos
+    def get_purchase_with_taxes(self) -> float:
+        return self._purchase_with_taxes
 
     def __str__(self) -> str:
         return (
-            f'[Bank]: "{self.get_bank_name()}" [Time]: "{self.get_time()}" [Compra]: ${self.get_compra()} '
-            f'[Venta]: ${self.get_venta()} [Compra C/Impuestos]: ${self.get_valor_con_impuesto()}'
+            f'[Bank]: "{self.get_bank_name()}" [Time]: "{self.get_time()}" [Buy]: ${self.get_buy()} '
+            f'[Sell]: ${self.get_sell()} [Purchase with taxes]: ${self.get_purchase_with_taxes()}'
         )

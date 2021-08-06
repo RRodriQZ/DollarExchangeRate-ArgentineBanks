@@ -13,7 +13,7 @@ class ArgentineBanksScrap(Banks):
     def get_dollar_values_of_banks(self) -> list[ArgentineBank]:
         try:
             self.logger.info(
-                f"**********[ INICIADO EL SCRAPING DE BANCOS ARGENTINOS ]**********"
+                f"**********[ ARGENTINE BANKS SCRAPING STARTED ]**********"
             )
 
             argentine_banks_list = []
@@ -28,21 +28,21 @@ class ArgentineBanksScrap(Banks):
                         {
                             "bank_name": name_page,
                             "time": time_now,
-                            "compra": partial_values[0],
-                            "venta": partial_values[1],
-                            "valor_con_impuestos": partial_values[3],
+                            "buy": partial_values[0],
+                            "sell": partial_values[1],
+                            "purchase_with_taxes": partial_values[3],
                         }
                     )
 
                     argentine_banks_list.append(new_argentine_bank)
 
                     self.logger.info(
-                        f"* Se extrajeron los valores de compra: {new_argentine_bank.__str__()}"
+                        f"* Purchase values were extracted: {new_argentine_bank.__str__()}"
                     )
 
                 except Exception as e:
                     self.logger.error(
-                        f'Error ocurrio un error en el Scraping url: "{url}", error: "{e}"'
+                        f'Error an error occurred in the Scraping url: "{url}", error: "{e}"'
                     )
 
             self.logger.info(
@@ -52,4 +52,4 @@ class ArgentineBanksScrap(Banks):
             return argentine_banks_list
 
         except Exception as e:
-            self.logger.error(f'Error en el Scraping de datos, error: "{e}"')
+            self.logger.error(f'Data scraping error, error: "{e}"')
