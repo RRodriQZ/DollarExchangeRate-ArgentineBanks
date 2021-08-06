@@ -1,5 +1,4 @@
 from functions.functions import get_partial_values_from_banks, get_str_time_now
-from model.argentineBank_model import ArgentineBank
 from schemas.validator import ArgentineBankSchema
 from scrap.inteface_bank_scrap import Banks
 from log.logger import Log
@@ -10,7 +9,7 @@ class ArgentineBanksScrap(Banks):
         super().__init__()
         self.logger = Log().get_logger(__name__)
 
-    def get_dollar_values_of_banks(self) -> list[ArgentineBank]:
+    def get_dollar_values_of_banks(self) -> list:
         try:
             self.logger.info(
                 f"**********[ ARGENTINE BANKS SCRAPING STARTED ]**********"
