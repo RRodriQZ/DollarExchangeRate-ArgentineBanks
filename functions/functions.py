@@ -46,9 +46,7 @@ def clean_values_scraping_bank(value: str) -> float:
         return float(value)
 
     except Exception as e:
-        logger.error(
-            f'Error cleaning return values from scraping, error "{e}"'
-        )
+        logger.error(f'Error cleaning return values from scraping, error "{e}"')
 
 
 def get_partial_values_from_banks(url: str) -> list:
@@ -70,6 +68,4 @@ def get_partial_values_from_banks(url: str) -> list:
         return partial_list
 
     except Exception as e:
-        logger.error(
-            f'Error in the return of scraping values: "{url}" ,error: "{e}"'
-        )
+        logger.error(f'Error in the return of scraping values: "{url}" ,error: "{e}"')
