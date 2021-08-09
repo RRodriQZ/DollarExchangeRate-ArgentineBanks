@@ -34,7 +34,7 @@ def get_response_by_url(url: str) -> BeautifulSoup:
 
 
 def clean_values_scraping_bank(value: str) -> float:
-    """Return the clean scraping values ​​in numeric format
+    """Return the clean scraping values in numeric format
 
     :param value: str
     :return: float
@@ -46,13 +46,11 @@ def clean_values_scraping_bank(value: str) -> float:
         return float(value)
 
     except Exception as e:
-        logger.error(
-            f'Error cleaning return values ​​from scraping, error "{e}"'
-        )
+        logger.error(f'Error cleaning return values from scraping, error "{e}"')
 
 
 def get_partial_values_from_banks(url: str) -> list:
-    """Return the list of partial values ​​from scraping
+    """Return the list of partial values from scraping
 
     :param url: str
     :return: list[float]
@@ -70,6 +68,4 @@ def get_partial_values_from_banks(url: str) -> list:
         return partial_list
 
     except Exception as e:
-        logger.error(
-            f'Error in the return of scraping values: "{url}" ,error: "{e}"'
-        )
+        logger.error(f'Error in the return of scraping values: "{url}" ,error: "{e}"')
