@@ -11,7 +11,6 @@ class ArgentineBankSchema(Schema):
     sell = fields.Float(attribute="sell")
     purchase_with_taxes = fields.Float(attribute="purchase_with_taxes")
 
-
     @post_load
     def create_argentine_bank(self, data, **kwargs):
         return ArgentineBank(**data)

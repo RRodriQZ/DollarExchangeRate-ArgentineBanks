@@ -2,17 +2,17 @@
 
 Web Scraping dollar values of Argentine Banks
 
-* Banco Nacion
-* Banco Ciudad
-* Banco Provincia
-* Banco Santander Rio
-* Banco Galicia
-* BBVA Banco Frances
-* Banco Comafi
-* Banco Patagonia
-* Banco ICBC
-* Banco Supervielle
-* Banco Hipotecario
+* **Banco Nacion**
+* **Banco Ciudad**
+* **Banco Provincia**
+* **Banco Santander Rio**
+* **Banco Galicia**
+* **BBVA Banco Frances**
+* **Banco Comafi**
+* **Banco Patagonia**
+* **Banco ICBC**
+* **Banco Supervielle**
+* **Banco Hipotecario**
 
 # Pre Requirements 📋
 
@@ -26,13 +26,13 @@ pip install pipenv
 ```cmd
 python -m venv venv
 .\venv\Scripts\activate
-pip install -r requirements.txt
+pip install -e .
 ```
 **Linux / MAC** command:
 ```cmd
 python -m venv venv
 source venv/bin/activate
-python -m pip install -r requirements.txt
+python -m pip install -e .
 ```
 # Running Python Script 🐼 #
 ```cmd
@@ -44,8 +44,8 @@ python test.py -v
 ```
 # Running Docker 🐳
 ```cmd
-docker build -t dollar .
-docker run -it dollar
+docker build -t dollar_exchange .
+docker run -it dollar_exchange
 ```
 # Author 🖋
 

@@ -1,6 +1,6 @@
 from functions.functions import get_partial_values_from_banks, get_str_time_now
-from schemas.validator import ArgentineBankSchema
-from scrap.inteface_bank_scrap import Banks
+from schemas.argentineBank_schema import ArgentineBankSchema
+from scrap.intefaceBank_scrap import Banks
 from log.logger import Log
 
 
