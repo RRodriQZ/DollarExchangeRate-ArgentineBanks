@@ -1,9 +1,9 @@
 from functions.functions import get_partial_values_from_banks
-from scrap.argentine_banks_scrap import ArgentineBanksScrap
+from scrap.argentineBank_scrap import ArgentineBanksScrap
 import unittest
 
 
-class Banks_test(unittest.TestCase):
+class BanksTest(unittest.TestCase):
     def setUp(self):
         self.argentine_banks_values = ArgentineBanksScrap().get_dollar_values_of_banks()
         self.icbc_url = "https://www.infodolar.com/cotizacion-dolar-entidad-icbc.aspx"
@@ -17,12 +17,22 @@ class Banks_test(unittest.TestCase):
         self.assertEqual(length_argentine_banks, 0)
 
     def test_banco_nacion_values(self):
-        bank_found = list(filter(lambda bank: bank.get_bank_name() == "Banco Nacion", self.argentine_banks_values))
+        bank_found = list(
+            filter(
+                lambda bank: bank.get_bank_name() == "Banco Nacion",
+                self.argentine_banks_values,
+            )
+        )
         bank_name = bank_found[0].get_bank_name()
         self.assertEqual(bank_name, "Banco Nacion")
 
     def test_banco_galicia_values(self):
-        bank_found = list(filter(lambda bank: bank.get_bank_name() == "Banco Galicia", self.argentine_banks_values))
+        bank_found = list(
+            filter(
+                lambda bank: bank.get_bank_name() == "Banco Galicia",
+                self.argentine_banks_values,
+            )
+        )
         bank_name = bank_found[0].get_bank_name()
         self.assertEqual(bank_name, "Banco Galicia")
 
